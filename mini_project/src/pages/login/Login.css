@@ -77,4 +77,47 @@
   .register-btn:hover {
     background-color: darkgray;
   }
+  .role-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  .role-toggle button {
+    padding: 10px 20px;
+    border: none;
+    background-color: lightgray;
+    cursor: pointer;
+    flex: 1;
+    transition: 0.3s;
+    border-radius: 5px;
+  }
+  
+  .role-toggle .active {
+    background-color: #194b24; /* Keep your theme color */
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  .password-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .password-container input {
+    flex: 1;
+    padding-right: 40px; /* Space for the button */
+  }
+  
+  .show-password-btn {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  
   

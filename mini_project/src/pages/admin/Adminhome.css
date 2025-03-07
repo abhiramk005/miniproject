@@ -1,0 +1,92 @@
+/* Sidebar container */
+.sidebar {
+    width: 200px;
+    height: 100vh; /* Full height */
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    border-radius: 0; /* Removed rounded corners */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    position: fixed; /* Sticks to the left */
+    top: 0;
+    left: 0;
+    overflow-y: auto; /* Allows scrolling if needed */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Sidebar header */
+  .sidebar-header h2 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  /* Sidebar menu */
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1; /* Expands to fill space */
+  }
+  
+  /* List items */
+  .sidebar-menu li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 5px;
+  }
+  
+  .sidebar-menu li:hover {
+    background: #34495e;
+  }
+  
+  /* Accordion header button */
+  .accordion-header {
+    width: 100%;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    text-align: left;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  /* Dropdown arrow */
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+  
+  .arrow.open {
+    transform: rotate(180deg);
+  }
+  
+  /* Submenu styles */
+  .submenu {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 5px;
+  }
+  
+  .submenu li {
+    padding: 5px;
+    font-size: 14px;
+    background: #34495e;
+    border-radius: 5px;
+    margin: 3px 0;
+  }
+  
+  /* Divider */
+  .divider {
+    border: 0;
+    height: 1px;
+    background: #bdc3c7;
+    margin: 10px 0;
+  }
+  
+  
+  
