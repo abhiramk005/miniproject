@@ -1,21 +1,33 @@
-import { useState } from 'react'
-import Login from './pages/login/Login'
-import Home from './pages/Home/Home'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Upload from './pages/upload/Upload'
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import Login from "./pages/login/Login";
+import Home from "./pages/Home/Home";
+import Upload from "./pages/upload/Upload";
+import Academics from "./pages/student/Academics"; // Import Academics page
+import TrackProgress from "./pages/student/Trackprogress";
 function App() {
-  
-  return(
+  return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Login/>}></Route>
-        <Route path='/studlogin' element={<Home/>}></Route>
-        <Route path='/adminlogin' element={<Home/>}></Route>
-        <Route path="/admin/upload" element={<Upload />} /> {/* Add Upload route */}
+        {/* Default route (Login page) */}
+        <Route path="/" element={<Login />} />
+
+        {/* Student home page */}
+        <Route path="/studlogin" element={<Home role="student" />} />
+
+        {/* Student academics page (View Academics) */}
+        <Route path="/studlogin/backlogs" element={<Academics />} />
+
+        {/* Admin home page */}
+        <Route path="/adminlogin" element={<Home role="admin" />} />
+
+        {/* Admin upload page */}
+        <Route path="/admin/upload" element={<Upload />} />
+
+        <Route path="/studlogin/track-progress" element={<TrackProgress />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

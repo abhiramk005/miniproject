@@ -17,6 +17,17 @@ function Asidebar({ activeItem }) {
     setOpen(open === value ? null : value);
   };
 
+  // Logout function
+  const handleLogout = () => {
+    const confirmLogout = window.confirm("Are you sure you want to log out?");
+    if (confirmLogout) {
+      localStorage.removeItem("role"); // Clear role from localStorage
+      localStorage.removeItem("token"); // Clear token (if applicable)
+      navigate("/"); // Redirect to login page
+    }
+  };
+  
+
   return (
     <div className="sidebar">
       <ul className="sidebar-menu">
@@ -27,7 +38,7 @@ function Asidebar({ activeItem }) {
           </button>
           {open === 1 && (
             <ul className="submenu">
-                <li>📈 Analytics</li>
+              <li>📈 Analytics</li>
               <li
                 className={activeItem === "upload" ? "active" : ""}
                 onClick={() => navigate("/admin/upload")}
@@ -54,7 +65,7 @@ function Asidebar({ activeItem }) {
         <li>👤 Profile</li>
         <li>🔔 Notifications</li>
         <li>⚙️ Settings</li>
-        <li>🚪 Log Out</li>
+        <li onClick={handleLogout}>🚪 Log Out</li> {/* Add logout functionality */}
       </ul>
     </div>
   );
