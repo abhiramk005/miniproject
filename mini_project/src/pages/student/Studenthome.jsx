@@ -1,47 +1,70 @@
-import React, { useState } from "react";
-import "./Ssidebar.css"; // Import the CSS file
+import React, { useState, useEffect } from "react";
+import Ssidebar from "../sidebar/Ssidebar"; // Import the Ssidebar component
+import "./Studenthome.css"; // Import the CSS file for Studenthome
 
 function Studenthome() {
-  const [open, setOpen] = useState(null);
+  const [studentName, setStudentName] = useState("");
+  const [backlogs, setBacklogs] = useState([]);
 
-  const handleOpen = (value) => {
-    setOpen(open === value ? null : value);
-  };
+  useEffect(() => {
+    // Fetch student name and backlogs from the backend
+    setStudentName("John Doe"); // Replace with API call
+    setBacklogs([
+      { courseCode: "CSE101", courseName: "Introduction to CS", status: "Pending", grade: "F" },
+      { courseCode: "MAT101", courseName: "Mathematics", status: "Cleared", grade: "A" },
+    ]);
+  }, []);
 
   return (
-    <div className="sidebar">
-      <ul className="sidebar-menu">
-        <li>
-          <button className="accordion-header" onClick={() => handleOpen(1)}>
-            📊Dashboard
-            <span className={`arrow ${open === 1 ? "open" : ""}`}>&#9660;</span>
-          </button>
-          {open === 1 && (
-            <ul className="submenu">
-              <li>📈 Analytics</li>
-              <li>📑 Reporting</li>
-              
-            </ul>
-          )}
-        </li>
-        <li>
-          <button className="accordion-header" onClick={() => handleOpen(2)}>
-          ☎️ Contact
-            <span className={`arrow ${open === 2 ? "open" : ""}`}>&#9660;</span>
-          </button>
-          {open === 2 && (
-            <ul className="submenu">
-              <li>ℹ️ About</li>
-              <li>⚠️ Report Bugs</li>
-            </ul>
-          )}
-        </li>
-        <hr className="divider" />
-        
-        <li>👤 Profile</li>
-        <li>⚙️ Settings</li>
-        <li>🚪 Log Out</li>
-      </ul>
+    <div className="student-container">
+      <Ssidebar /> {/* Sidebar */}
+      <div className="main-content">
+        {/* Welcome Message */}
+        <div className="welcome-message">
+          <h2>Welcome back, {studentName}!</h2>
+          <p>Here's a quick overview of your academic progress.</p>
+        </div>
+
+        {/* Academic Progress Summary */}
+        <div className="progress-summary">
+          <div className="summary-card">
+            <h3>Total Backlogs</h3>
+            <p>{backlogs.length}</p>
+          </div>
+          <div className="summary-card">
+            <h3>Cleared Backlogs</h3>
+            <p>{backlogs.filter((backlog) => backlog.status === "Cleared").length}</p>
+          </div>
+          <div className="summary-card">
+            <h3>Ongoing Courses</h3>
+            <p>{backlogs.filter((backlog) => backlog.status === "Pending").length}</p>
+          </div>
+        </div>
+
+        {/* Quick Actions */}
+        <div className="quick-actions">
+          <h3>Quick Actions</h3>
+          <button onClick={() => console.log("View Backlogs")}>View Backlogs</button>
+          <button onClick={() => console.log("Report Issue")}>Report Issue</button>
+          <button onClick={() => console.log("Access Resources")}>Access Resources</button>
+        </div>
+
+        {/* Visual Progress Tracker */}
+        <div className="progress-tracker">
+          <h3>Your Progress</h3>
+          <div className="progress-bar">
+            <div
+              className="progress"
+              style={{
+                width: `${(backlogs.filter((backlog) => backlog.status === "Cleared").length / backlogs.length) * 100}%`,
+              }}
+            ></div>
+          </div>
+          <p>
+            {((backlogs.filter((backlog) => backlog.status === "Cleared").length / backlogs.length) * 100).toFixed(2)}% of courses cleared
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
