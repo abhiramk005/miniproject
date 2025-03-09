@@ -1,18 +1,29 @@
 import React, { useState } from "react";
+import { useDropzone } from "react-dropzone"; // Import useDropzone
 import Asidebar from "../sidebar/Asidebar"; // Import the Asidebar component
 import "./Upload.css"; // Import the CSS file for styling
 import Header from "../Header/Header";
+
 function Upload() {
   const [semester, setSemester] = useState("");
   const [batch, setBatch] = useState("");
+  const [resultType, setResultType] = useState(""); // New state for result type
   const [file, setFile] = useState(null);
   const [error, setError] = useState("");
+
+  // Handle file drop
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: ".pdf", // Accept only PDF files
+    onDrop: (acceptedFiles) => {
+      setFile(acceptedFiles[0]); // Set the first file
+    },
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Validate form fields
-    if (!semester || !batch || !file) {
+    if (!semester || !batch || !resultType || !file) {
       setError("Please fill all fields and select a file.");
       return;
     }
@@ -21,21 +32,23 @@ function Upload() {
     const formData = new FormData();
     formData.append("semester", semester);
     formData.append("batch", batch);
+    formData.append("resultType", resultType); // Add result type
     formData.append("file", file);
 
     // Example: Send formData to backend using fetch or axios
-    console.log("Form Data:", { semester, batch, file });
+    console.log("Form Data:", { semester, batch, resultType, file });
 
     // Reset form
     setSemester("");
     setBatch("");
+    setResultType("");
     setFile(null);
     setError("");
   };
 
   return (
     <div className="upload-container">
-      <Header/>
+      <Header />
       {/* Sidebar */}
       <Asidebar activeItem="upload" /> {/* Pass the activeItem prop */}
 
@@ -60,7 +73,6 @@ function Upload() {
               <option value="Semester 6">S6</option>
               <option value="Semester 7">S7</option>
               <option value="Semester 8">S8</option>
-
             </select>
           </div>
 
@@ -85,29 +97,32 @@ function Upload() {
               <option value="2025">2025</option>
             </select>
           </div>
+
+          {/* Result Type Dropdown */}
           <div className="form-group">
             <label>Result Type</label>
             <select
-              value={batch}
-              onChange={(e) => setBatch(e.target.value)}
+              value={resultType}
+              onChange={(e) => setResultType(e.target.value)}
               required
             >
-              <option value="">Select Batch</option>
+              <option value="">Select Result Type</option>
               <option value="regular">Regular</option>
               <option value="revaluation">Revaluation</option>
-              
             </select>
           </div>
 
-          {/* File Upload */}
+          {/* Drag-and-Drop File Upload */}
           <div className="form-group">
             <label>Upload PDF</label>
-            <input
-              type="file"
-              accept=".pdf"
-              onChange={(e) => setFile(e.target.files[0])}
-              required
-            />
+            <div {...getRootProps()} className="dropzone">
+              <input {...getInputProps()} />
+              {file ? (
+                <p>File selected: {file.name}</p>
+              ) : (
+                <p>Drag & drop a PDF file here, or click to select one</p>
+              )}
+            </div>
           </div>
 
           {/* Error Message */}

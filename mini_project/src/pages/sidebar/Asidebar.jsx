@@ -42,7 +42,12 @@ function Asidebar({ activeItem }) {
           </button>
           {open === 1 && (
             <ul className="submenu">
-              <li>📈 Analytics</li>
+              <li
+  className={activeItem === "analytics" ? "active" : ""}
+  onClick={() => navigate("/admin/analytics")}
+>
+  📈 Analytics
+</li>
               <li
                 className={activeItem === "upload" ? "active" : ""}
                 onClick={() => navigate("/admin/upload")}

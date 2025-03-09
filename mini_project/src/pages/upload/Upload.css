@@ -1,64 +1,82 @@
-/* Upload.css */
 .upload-container {
-    display: flex;
-    min-height: 100vh; /* Use min-height instead of height */
-  }
-  
-  .upload-page {
-    flex: 1;
-    padding: 20px;
-    background-color: #fff;
-    max-width: 500px;
-    margin-top: 120px;
-    margin-left: 420px;
-    margin-right: auto;
-    margin-bottom: 0;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: fit-content;
+  display: flex;
+  min-height: 100vh;
 }
-  
-  .upload-page h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 10px; /* Reduce margin */
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .form-group select,
-  .form-group input[type="file"] {
-    width: 100%;
-    padding: 8px; /* Reduce padding */
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px; /* Reduce font size */
-  }
-  
-  .error {
-    color: red;
-    text-align: center;
-    margin-bottom: 10px; /* Reduce margin */
-  }
-  
-  .submit-btn {
-    width: 100%;
-    padding: 8px; /* Reduce padding */
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px; /* Reduce font size */
-    cursor: pointer;
-  }
-  
-  .submit-btn:hover {
-    background-color: #0056b3;
-  }
+
+.upload-page {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  max-width: 500px;
+  margin-top: 120px;
+  margin-left: 420px;
+  margin-right: auto;
+  margin-bottom: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+
+.upload-page h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Drag-and-Drop Zone */
+.dropzone {
+  border: 2px dashed #007bff;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s;
+}
+
+.dropzone:hover {
+  background-color: #e9f5ff;
+}
+
+.dropzone p {
+  margin: 0;
+  color: #007bff;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 8px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}

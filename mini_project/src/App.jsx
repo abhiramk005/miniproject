@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home";
 import Upload from "./pages/upload/Upload";
 import Academics from "./pages/student/Academics"; // Import Academics page
 import TrackProgress from "./pages/student/Trackprogress";
+import Analytics from "./pages/admin/Analytics";
 function App() {
   return (
     <BrowserRouter>
@@ -25,6 +26,7 @@ function App() {
         <Route path="/admin/upload" element={<Upload />} />
 
         <Route path="/studlogin/track-progress" element={<TrackProgress />} />
+        <Route path="/admin/analytics" element={<Analytics />} />
       </Routes>
     </BrowserRouter>
   );
