@@ -1,7 +1,7 @@
 import React from "react";
 import Ssidebar from "../sidebar/Ssidebar"; // Import the Ssidebar component
 import "./TrackProgress.css"; // Create a CSS file for styling
-
+import Header from "../Header/Header";
 const TrackProgress = () => {
     // Dummy data for course progress
     const courses = [
@@ -17,6 +17,7 @@ const TrackProgress = () => {
   
     return (
       <div className="track-progress-page">
+        <Header/>
         <Ssidebar activeItem="track-progress" /> {/* Pass the activeItem prop */}
         <div className="track-progress-container">
           <h2>📊 Track Progress</h2>

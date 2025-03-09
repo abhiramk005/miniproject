@@ -26,11 +26,15 @@ function Asidebar({ activeItem }) {
       navigate("/"); // Redirect to login page
     }
   };
+  const handleHomeClick = () => {
+    navigate("/adminlogin"); // Navigate to /adminlogin
+  };
   
 
   return (
     <div className="sidebar">
       <ul className="sidebar-menu">
+      <li onClick={handleHomeClick}>🏠 Home</li> {/* Home button */}
         <li>
           <button className="accordion-header" onClick={() => handleOpen(1)}>
             📊Dashboard

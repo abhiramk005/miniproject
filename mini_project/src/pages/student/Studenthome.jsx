@@ -1,10 +1,11 @@
 import React from "react";
 import Ssidebar from "../sidebar/Ssidebar"; // Import the Ssidebar component
 import "./Studenthome.css"; // Import the CSS file for Studenthome
-
+import Header from "../Header/Header";
 function Studenthome() {
   return (
     <div className="student-container">
+      <Header/>
       <Ssidebar activeItem="dashboard" /> {/* Sidebar with active dashboard */}
 
       <div className="main-content">
@@ -33,9 +34,10 @@ function Studenthome() {
         {/* Quick Actions */}
         <div className="quick-actions">
           <h3>Quick Actions</h3>
-          <button>View Backlogs</button>
-          <button>Report Issue</button>
-          <button>Access Resources</button>
+          
+          <button className="action-button">View Academics</button>
+          <button className="action-button">Report Issue</button>
+          <button className="action-button">Access Resources</button>
         </div>
 
         {/* Visual Progress Tracker */}
@@ -44,7 +46,7 @@ function Studenthome() {
           <div className="progress-bar">
             <div className="progress" style={{ width: "33%" }}></div>
           </div>
-          <p>33% of courses cleared</p>
+          <p>75% of courses cleared</p>
         </div>
       </div>
     </div>

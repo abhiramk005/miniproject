@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Asidebar from "../sidebar/Asidebar"; // Import the Asidebar component
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "./Adminhome.css"; // Import the CSS file for Adminhome
-
+import Header from "../Header/Header";
 function Adminhome() {
   const [adminName, setAdminName] = useState("");
   const [systemOverview, setSystemOverview] = useState({});
@@ -25,6 +25,7 @@ function Adminhome() {
 
   return (
     <div className="admin-container">
+      <Header/>
       <Asidebar /> {/* Sidebar */}
       <div className="main-content">
         {/* Welcome Message */}

@@ -5,6 +5,7 @@
   
   .academics-container {
     flex: 1;
+    margin-top: 30px;
     padding: 20px;
     background-color: #fff;
     margin-left: 250px; /* Adjust based on the sidebar width */

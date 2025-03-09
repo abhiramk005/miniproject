@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Ssidebar from "../sidebar/Ssidebar"; // Import the Ssidebar component
 import "./Academics.css"; // Import the CSS file for styling
-
+import Header from "../Header/Header";
 const semesters = [
   { semester: "Semester 1", subjects: ["Maths", "Physics", "Chemistry"] },
   { semester: "Semester 2", subjects: ["Maths II", "Programming", "Electronics"] },
@@ -28,6 +28,7 @@ const Academics = () => {
 
   return (
     <div className="academics-page">
+      <Header/>
       <Ssidebar activeItem="backlogs" /> {/* Pass the activeItem prop */}
       <div className="academics-container">
         <h2>📚 Academic Records</h2>

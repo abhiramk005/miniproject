@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Asidebar from "../sidebar/Asidebar"; // Import the Asidebar component
 import "./Upload.css"; // Import the CSS file for styling
-
+import Header from "../Header/Header";
 function Upload() {
   const [semester, setSemester] = useState("");
   const [batch, setBatch] = useState("");
@@ -35,6 +35,7 @@ function Upload() {
 
   return (
     <div className="upload-container">
+      <Header/>
       {/* Sidebar */}
       <Asidebar activeItem="upload" /> {/* Pass the activeItem prop */}
 
@@ -82,6 +83,19 @@ function Upload() {
               <option value="2023">2023</option>
               <option value="2024">2024</option>
               <option value="2025">2025</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Result Type</label>
+            <select
+              value={batch}
+              onChange={(e) => setBatch(e.target.value)}
+              required
+            >
+              <option value="">Select Batch</option>
+              <option value="regular">Regular</option>
+              <option value="revaluation">Revaluation</option>
+              
             </select>
           </div>
 

@@ -26,9 +26,14 @@ function Ssidebar({ activeItem }) {
     }
   };
 
+  const handleHomeClick = () => {
+    navigate("/studlogin"); // Navigate to /adminlogin
+  };
+
   return (
     <div className="sidebar">
       <ul className="sidebar-menu">
+      <li onClick={handleHomeClick}>🏠 Home</li> {/* Home button */}
         <li>
           <button className="accordion-header" onClick={() => handleOpen(1)}>
             📊 Dashboard
