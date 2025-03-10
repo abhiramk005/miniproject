@@ -12,7 +12,7 @@ const TrackProgress = () => {
       { name: "Semester 5", progress: 100 },
       { name: "Semester 6", progress: 0 },
       { name: "Semester 7", progress: 0 },
-      { name: "Semester 4", progress: 0 }
+      { name: "Semester 8", progress: 0 }
     ];
   
     return (

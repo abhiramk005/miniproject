@@ -80,7 +80,7 @@ function Analytics() {
             <label>Search Student</label>
             <input
               type="text"
-              placeholder="Search by name"
+              placeholder="Search by Register No."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
